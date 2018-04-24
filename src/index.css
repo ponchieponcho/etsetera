@@ -20,6 +20,7 @@ header {
 main {
   background-color: aquamarine;
   height: 90vh;
+  display: flex;
 }
 
 nav {
@@ -32,7 +33,7 @@ nav {
 a
 {
   text-decoration: none;
-  color: #232323;
+  color: black;
 
   transition: color 0.3s ease;
 }
@@ -60,22 +61,6 @@ a:hover
   user-select: none;
 }
 
-#menuToggle input
-{
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  
-  cursor: pointer;
-  
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-  
-  -webkit-touch-callout: none;
-}
-
 #menuToggle span
 {
   display: block;
@@ -84,7 +69,7 @@ a:hover
   margin-bottom: 5px;
   position: relative;
   
-  background: #cdcdcd;
+  background: black;
   border-radius: 3px;
   
   z-index: 1;
@@ -124,25 +109,6 @@ a:hover
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-#menu
-{
-  position: absolute;
-  width: 300px;
-  height: 100vh;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
-  
-  background: #ededed;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-}
-
 #menu li
 {
   padding: 10px 0;
@@ -164,6 +130,25 @@ a:hover
   justify-content: space-between;
   align-items: center;
   height: inherit;
-  flex-basis: 25%;
+  flex-basis: 30%;
   margin-right: 2vw;
+}
+
+.fa-layers-counter {
+  background:Tomato;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 70%;
+}
+
+.test {
+  background-color: beige;
+}
+
+.toggle-on {
+  display: inherit;
+}
+
+.toggle-off {
+  display: none;
 }
