@@ -11,7 +11,7 @@ let categories = [
 class Menu extends Component {
   render() {
     return (
-      <div className="menu-container">
+      <div className="main-menu">
       {
             categories.map(list => <CategoryRow key={list.id} list={list}/>)
         }
