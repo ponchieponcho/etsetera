@@ -3,18 +3,40 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Header from './Header';
 import Main from './Main';
-import {createStore} from 'redux';
 import {connect, Provider} from 'react-redux';
+import {createStore} from 'redux';
+import {UPDATE_MENU} from './actions/menu'
 
-let initState = {products:[]};
-const UPDATE_CATEGORY = 'UPDATE_CATEGORY';
+let initialState = {
+    products: [
+        { "id": 1, "name": "Coffee Maker", "categoryId": 2, "price": 19.99 },
+        { "id": 2, "name": "Redux Help", "categoryId": 3, "price": 9.99 },
+        { "id": 3, "name": "Super Amazing Computer", "categoryId": 1, "price": 10000 },
+        { "id": 4, "name": "Werewolf", "categoryId": 4, "price": 14.99 }
+    ],
+    categories: [
+        { "id": 1, "name": "Technology" },
+        { "id": 2, "name": "Food and Beverage" },
+        { "id": 3, "name": "Educational" },
+        { "id": 4, "name": "Board Games"}
+      ],
+    users: [
+        { "id": 1, "firstname": "Seth", "lastname": "Zim" },
+        { "id": 2, "firstname": "Jonathan", "lastname": "Martin" },
+        { "id": 3, "firstname": "Joshua", "lastname": "Martin" }
+    ],
+    cart: [
+        { "id": 3, "name": "Super Amazing Computer", "categoryId": 1, "price": 10000 }
+    ],
+    menuOpen: false   
+};
 
-
-let reducer = (state = initState, action) => {
+let reducer = (state = initialState, action) => {
     switch(action.type) {
-        case UPDATE_CATEGORY:
-        console.log('ACTION: UPDATE_CATEGORY')
-        return {...state}
+        case UPDATE_MENU:
+        console.log('SWITCH ACTION: UPDATE_MENU')
+        let menuOpen = action.payload;
+        return {...state, menuOpen: menuOpen}
         
         default:
             return state;
@@ -24,7 +46,7 @@ let reducer = (state = initState, action) => {
 let store = createStore(reducer, 
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-let Body = ({products, dispatch}) => 
+let Body = () => 
     <div>
         <Header />
         <Main />
@@ -36,14 +58,20 @@ let TopLevel = () =>
     </Provider>
 
 let mapStateToProps = (state) => {
-    return {products: state.products};
+    return {
+        products: state.products,
+        categories: state.categories,
+        users: state.users,
+        cart: state.cart,
+        menuOpen: state.menuOpen
+    };
   }
   
-  let mapDispatchToProps = (dispatch) => {
+let mapDispatchToProps = (dispatch) => {
     return {dispatch: dispatch};
   }
   
-  let ConnectScreen = connect(
+let ConnectScreen = connect(
     mapStateToProps,
     mapDispatchToProps
   )(Body);

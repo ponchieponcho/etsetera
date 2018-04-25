@@ -1,23 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CategoryRow from './CategoryRow';
+import {connect} from 'react-redux';
 
-let categories = [
-  { "id": 1, "name": "Technology" },
-  { "id": 2, "name": "Food and Beverage" },
-  { "id": 3, "name": "Educational" },
-  { "id": 4, "name": "Board Games"}
-]
-
-class Menu extends Component {
-  render() {
-    return (
-      <div className="main-menu">
-      {
-            categories.map(list => <CategoryRow key={list.id} list={list}/>)
-        }
-    </div>
-    );
+let mapStateToProps = (state, props) => {
+  return {
+    categories: state.categories
   }
 }
 
-export default Menu;
+let mapDispatchToProps = (dispatch) => {
+  return {dispatch: dispatch};
+}
+
+let Menu = ({categories}) => {
+  return (
+  <div className="main-menu">
+  {
+        categories.map(category => <CategoryRow key={category.id} category={category}/>)
+    }
+  </div>
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
