@@ -11,8 +11,9 @@ let initialState = {
     products: [
         { "id": "1", "name": "Coffee Maker", "categoryId": "2", "price": 19.99 },
         { "id": "2", "name": "Redux Help", "categoryId": "3", "price": 9.99 },
-        { "id": "3", "name": "Super Amazing Computer", "categoryId": 1, "price": 10000 },
-        { "id": "4", "name": "Werewolf", "categoryId": "4", "price": 14.99 }
+        { "id": "3", "name": "Super Amazing Computer", "categoryId": "1", "price": 10000 },
+        { "id": "4", "name": "Werewolf", "categoryId": "4", "price": 14.99 },
+        { "id": "5", "name": "Test 1", "categoryId": "4", "price": 7.99 }
     ],
     categories: [
         { "id": "1", "name": "Technology" },

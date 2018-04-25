@@ -43,6 +43,11 @@ a:hover
   color: tomato;
 }
 
+h1 {
+  padding: 0px;
+  margin: 0px;
+}
+
 .left-nav {
   display: flex;
   align-items: center;
@@ -72,14 +77,6 @@ a:hover
   font-size: 70%;
 }
 
-.toggle-on {
-  display: flex;
-}
-
-.toggle-off {
-  display: none;
-}
-
 .main-menu {
   display: flex;
   flex-direction: column;
@@ -89,9 +86,26 @@ a:hover
 }
 
 .main-content {
-  flex-basis: 70%;
+  height: 100%;
+  width: 100%;
 }
 
 .menu-item {
+  margin: 5px;
+}
+
+.categorypage-container {
+  /* background-color: grey; */
+  display:flex;
+  height: inherit;
+  width: inherit;
+}
+
+.singlelisting-container {
+  border: 5px solid;
+  background-color: honeydew;
+  padding: 5px;
+  height: 300px;
+  width: 300px;
   margin: 5px;
 }
