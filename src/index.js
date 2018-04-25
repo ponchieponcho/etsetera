@@ -9,24 +9,24 @@ import {UPDATE_MENU} from './actions/menu'
 
 let initialState = {
     products: [
-        { "id": 1, "name": "Coffee Maker", "categoryId": 2, "price": 19.99 },
-        { "id": 2, "name": "Redux Help", "categoryId": 3, "price": 9.99 },
-        { "id": 3, "name": "Super Amazing Computer", "categoryId": 1, "price": 10000 },
-        { "id": 4, "name": "Werewolf", "categoryId": 4, "price": 14.99 }
+        { "id": "1", "name": "Coffee Maker", "categoryId": "2", "price": 19.99 },
+        { "id": "2", "name": "Redux Help", "categoryId": "3", "price": 9.99 },
+        { "id": "3", "name": "Super Amazing Computer", "categoryId": 1, "price": 10000 },
+        { "id": "4", "name": "Werewolf", "categoryId": "4", "price": 14.99 }
     ],
     categories: [
-        { "id": 1, "name": "Technology" },
-        { "id": 2, "name": "Food and Beverage" },
-        { "id": 3, "name": "Educational" },
-        { "id": 4, "name": "Board Games"}
+        { "id": "1", "name": "Technology" },
+        { "id": "2", "name": "Food and Beverage" },
+        { "id": "3", "name": "Educational" },
+        { "id": "4", "name": "Board Games"}
       ],
     users: [
-        { "id": 1, "firstname": "Seth", "lastname": "Zim" },
-        { "id": 2, "firstname": "Jonathan", "lastname": "Martin" },
-        { "id": 3, "firstname": "Joshua", "lastname": "Martin" }
+        { "id": "1", "firstname": "Seth", "lastname": "Zim" },
+        { "id": "2", "firstname": "Jonathan", "lastname": "Martin" },
+        { "id": "3", "firstname": "Joshua", "lastname": "Martin" }
     ],
     cart: [
-        { "id": 3, "name": "Super Amazing Computer", "categoryId": 1, "price": 10000 }
+        { "id": "3", "name": "Super Amazing Computer", "categoryId": 1, "price": 10000 }
     ],
     menuOpen: false   
 };

@@ -3,12 +3,11 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import CartPage from './CartPage';
 import LandingPage from './LandingPage';
 import SignInPage from './SignInPage';
-import ProductList from './ProductList';
 import Menu from './Menu';
 import {connect} from 'react-redux';
 import CategoryPage from './CategoryPage';
 
-let mapStateToProps = (state) => { //set things you need access to
+let mapStateToProps = (state) => { //set thngs you need access to
   return {
     menuOpen: state.menuOpen
   };
@@ -31,8 +30,7 @@ let Main = ({menuOpen}) =>
       <Route path="/" exact component={LandingPage} />
       <Route path="/cart" exact component={CartPage} />
       <Route path="/signin" exact component={SignInPage} />
-      <Route path="/products" exact component={ProductList} />
-      <Route path="/products/:category" exact component={CategoryPage} />
+      <Route path="/products/:categoryId" exact component={CategoryPage} />
 
     </Switch>
     </div>
