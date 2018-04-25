@@ -5,7 +5,7 @@ import Header from './Header';
 import Main from './Main';
 import {connect, Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {UPDATE_MENU} from './actions/menu'
+import {UPDATE_MENU, UPDATE_CART} from './actions/menu'
 
 let initialState = {
     products: [
@@ -35,10 +35,17 @@ let initialState = {
 let reducer = (state = initialState, action) => {
     switch(action.type) {
         case UPDATE_MENU:
-        console.log('SWITCH ACTION: UPDATE_MENU')
+        console.log('TRIGGERED ACTION: UPDATE_MENU')
         let menuOpen = action.payload;
         return {...state, menuOpen: menuOpen}
-        
+
+        case UPDATE_CART:
+        console.log('TRIGGERED ACTION: UPDATE_CART')
+        let item = action.payload;
+        let newState = state.cart;
+        let cart = newState.concat(item)
+        return {...state, cart: cart}
+    
         default:
             return state;
     }

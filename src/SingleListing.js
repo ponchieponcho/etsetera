@@ -1,11 +1,16 @@
 import React from 'react';
-let item = { "id": 1, "name": "Coffee Maker", "categoryId": 2, "price": 19.99 }
+import {NavLink} from 'react-router-dom';
 
-let SingleListing = (item) =>
-    <div className="item-container">
-    <div className="image-placeholder"></div>
-    <h1>{item.name}</h1>
+let SingleListing = ({item}) => {
+    return (
+    <NavLink to={`/product/${item.id}`}>
+    <div className="singlelisting-container">
+        <div className="image-placeholder"></div>
+        <h1>{item.name}</h1>
+        <span>{`$${item.price}`}</span>
     </div>
-  
+    </NavLink>
+    )
+}
 
 export default SingleListing;
