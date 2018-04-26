@@ -27,6 +27,7 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 100%;
+  border-bottom: .5px solid;
   /* align-items: center; */
 }
 
@@ -46,6 +47,10 @@ a:hover
 h1 {
   padding: 0px;
   margin: 0px;
+}
+
+#MenuIcon {
+  margin-bottom: 7.3px;
 }
 
 .left-nav {
@@ -83,11 +88,13 @@ h1 {
   /* background-color: burlywood; */
   align-items: center;
   flex-basis: 30%;
+  padding-top: .5%;
 }
 
 .main-content {
   height: 100%;
   width: 100%;
+  padding-top: 1%;
 }
 
 .menu-item {

@@ -24,8 +24,7 @@ let Nav = ({cart, updateMenuStatus, menuOpen}) =>
   <nav>
     <div className="left-nav">
     <div>
-    <i className="fas fa-bars fa-2x" onClick={() => updateMenuStatus(!menuOpen)}></i>
-      {/* <button onClick={() => updateMenuStatus(!menuOpen)}>Menu</button> */}
+    <i id="MenuIcon" className="fas fa-bars fa-2x" onClick={() => updateMenuStatus(!menuOpen)}></i>
     </div>
       <span className="logo"><NavLink to="/">ETSETERA</NavLink></span>
     </div>
