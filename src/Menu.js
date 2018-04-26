@@ -12,11 +12,11 @@ let mapDispatchToProps = (dispatch) => {
   return {dispatch:dispatch}
 }
 
-let Menu = ({categories}) => {
+let Menu = ({categories, updateCategoryPage}) => {
   return (
   <div className="main-menu">
   {
-        categories.map(category => <CategoryRow key={category.id} category={category}/>)
+        categories.map(category => <CategoryRow key={category.id} category={category} />)
     }
   </div>
   )
