@@ -1,5 +1,4 @@
 import React from 'react';
-// import {HashRouter as Router, NavLink} from 'react-router-dom';
 import {actionUpdateCart} from './actions/menu';
 import {connect} from 'react-redux';
 

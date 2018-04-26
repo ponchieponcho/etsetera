@@ -5,13 +5,14 @@ import Header from './Header';
 import Main from './Main';
 import {connect, Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {UPDATE_MENU, UPDATE_MENU_STATUS, UPDATE_CART} from './actions/menu'
+import {UPDATE_MENU, UPDATE_MENU_STATUS, UPDATE_CART, UPDATE_CATEGORYPAGE} from './actions/menu'
 
 let initialState = {
     products: [],
     categories: [],
     users: [],
     cart: [],
+    catProducts: [],
     menuOpen: false   
 };
 
@@ -30,9 +31,14 @@ let reducer = (state = initialState, action) => {
         return {...state, cart: cart}
         
         case UPDATE_MENU:
-        console.log('TRIGGERED ACTION: UPDATE_MENU')
+        // console.log('TRIGGERED ACTION: UPDATE_MENU')
         let categories = action.payload;
         return {...state, categories: categories}
+
+        case UPDATE_CATEGORYPAGE:
+        console.log('TRIGGERED ACTION: UPDATE_CATEGORYPAGE')
+        let catProducts = action.payload;
+        return {...state, catProducts: catProducts}
 
         default:
             return state;
