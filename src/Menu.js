@@ -9,7 +9,7 @@ let mapStateToProps = (state, props) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-  return {dispatch: dispatch};
+  return {dispatch:dispatch}
 }
 
 let Menu = ({categories}) => {

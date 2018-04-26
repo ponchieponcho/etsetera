@@ -1,7 +1,7 @@
 import React from 'react';
 import {HashRouter as Router, NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {actionUpdateMenu} from './actions/menu'
+import {actionUpdateMenuStatus} from './actions/menu'
 
 let mapStateToProps = (state) => { //set things you need access to
   return {
@@ -12,19 +12,19 @@ let mapStateToProps = (state) => { //set things you need access to
 
 let mapDispatchToProps = (dispatch) => {
   return { 
-    updateMenu: (theBoolean) => {
-      dispatch(actionUpdateMenu(theBoolean))
+    updateMenuStatus: (theBoolean) => {
+      dispatch(actionUpdateMenuStatus(theBoolean))
     }
   }
 }
 
-let Nav = ({cart, updateMenu, menuOpen}) => 
+let Nav = ({cart, updateMenuStatus, menuOpen}) => 
   <Router>
 
   <nav>
     <div className="left-nav">
     <div>
-      <button onClick={() => updateMenu(!menuOpen)}>Menu</button>
+      <button onClick={() => updateMenuStatus(!menuOpen)}>Menu</button>
     </div>
       <span className="logo"><NavLink to="/">ETSETERA</NavLink></span>
     </div>

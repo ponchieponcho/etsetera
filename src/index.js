@@ -5,37 +5,20 @@ import Header from './Header';
 import Main from './Main';
 import {connect, Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {UPDATE_MENU, UPDATE_CART} from './actions/menu'
+import {UPDATE_MENU, UPDATE_MENU_STATUS, UPDATE_CART} from './actions/menu'
 
 let initialState = {
-    products: [
-        { "id": "1", "name": "Coffee Maker", "categoryId": "2", "price": 19.99 },
-        { "id": "2", "name": "Redux Help", "categoryId": "3", "price": 9.99 },
-        { "id": "3", "name": "Super Amazing Computer", "categoryId": "1", "price": 10000 },
-        { "id": "4", "name": "Werewolf", "categoryId": "4", "price": 14.99 },
-        { "id": "5", "name": "Test 1", "categoryId": "4", "price": 7.99 }
-    ],
-    categories: [
-        { "id": "1", "name": "Technology" },
-        { "id": "2", "name": "Food and Beverage" },
-        { "id": "3", "name": "Educational" },
-        { "id": "4", "name": "Board Games"}
-      ],
-    users: [
-        { "id": "1", "firstname": "Seth", "lastname": "Zim" },
-        { "id": "2", "firstname": "Jonathan", "lastname": "Martin" },
-        { "id": "3", "firstname": "Joshua", "lastname": "Martin" }
-    ],
-    cart: [
-        { "id": "3", "name": "Super Amazing Computer", "categoryId": 1, "price": 10000 }
-    ],
+    products: [],
+    categories: [],
+    users: [],
+    cart: [],
     menuOpen: false   
 };
 
 let reducer = (state = initialState, action) => {
     switch(action.type) {
-        case UPDATE_MENU:
-        console.log('TRIGGERED ACTION: UPDATE_MENU')
+        case UPDATE_MENU_STATUS:
+        console.log('TRIGGERED ACTION: UPDATE_MENU_STATUS')
         let menuOpen = action.payload;
         return {...state, menuOpen: menuOpen}
 
@@ -45,7 +28,12 @@ let reducer = (state = initialState, action) => {
         let newState = state.cart;
         let cart = newState.concat(item)
         return {...state, cart: cart}
-    
+        
+        case UPDATE_MENU:
+        console.log('TRIGGERED ACTION: UPDATE_MENU')
+        let categories = action.payload;
+        return {...state, categories: categories}
+
         default:
             return state;
     }

@@ -5,12 +5,13 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import CartPage from './CartPage';
 import LandingPage from './LandingPage';
 import SignInPage from './SignInPage';
-import Menu from './Menu';
 import CategoryPage from './CategoryPage';
 import ProductPage from './ProductPage';
+import MenuFetch from './MenuFetch';
 
 
-let mapStateToProps = (state) => { //set thngs you need access to
+
+let mapStateToProps = (state) => { 
   return {
     menuOpen: state.menuOpen
   };
@@ -26,7 +27,7 @@ let Main = ({menuOpen}) =>
   <Router>
 
   <main>
-    {!menuOpen && <Menu />}
+    {!menuOpen && <MenuFetch />}
     <div className="main-content">
     <Switch>
 

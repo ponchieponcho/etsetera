@@ -15,6 +15,7 @@ let mapDispatchToProps = (dispatch) => ({
 })
 
 let CategoryPage = ({items}) => {
+    console.log(items)
    return( 
     <div className="categorypage-container">
     {
