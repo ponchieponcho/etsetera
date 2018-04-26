@@ -4,7 +4,7 @@ export const UPDATE_MENU = 'UPDATE_MENU'
 export const UPDATE_CATEGORYPAGE = 'UPDATE_CATEGORYPAGE'
 
 export let actionUpdateMenuStatus = (menuStatus) => {
-  console.log('RUNNING actionUpdateSupList')
+  // console.log('RUNNING actionUpdateMenuStatus')
   console.log(menuStatus)
   return { type: UPDATE_MENU_STATUS, payload: menuStatus}
 }
@@ -20,6 +20,6 @@ export let actionUpdateCategoryMenu = (categories) => {
 }
 
 export let actionUpdateCategoryPage = (categoryProducts) => {
-  console.log('RUNNING actionUpdateCategoryPage', categoryProducts)
+  // console.log('RUNNING actionUpdateCategoryPage', categoryProducts)
   return { type: UPDATE_CATEGORYPAGE, payload: categoryProducts}
 }

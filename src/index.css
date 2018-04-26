@@ -6,7 +6,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   width: inherit;
   height: inherit;
   font-size: 100%;
@@ -102,7 +102,7 @@ h1 {
 }
 
 .singlelisting-container {
-  border: 5px solid;
+  box-shadow: 3px 3.5px black;
   background-color: honeydew;
   padding: 5px;
   height: 300px;

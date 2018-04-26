@@ -19,7 +19,7 @@ let initialState = {
 let reducer = (state = initialState, action) => {
     switch(action.type) {
         case UPDATE_MENU_STATUS:
-        console.log('TRIGGERED ACTION: UPDATE_MENU_STATUS')
+        // console.log('TRIGGERED ACTION: UPDATE_MENU_STATUS')
         let menuOpen = action.payload;
         return {...state, menuOpen: menuOpen}
 
@@ -36,7 +36,7 @@ let reducer = (state = initialState, action) => {
         return {...state, categories: categories}
 
         case UPDATE_CATEGORYPAGE:
-        console.log('TRIGGERED ACTION: UPDATE_CATEGORYPAGE')
+        // console.log('TRIGGERED ACTION: UPDATE_CATEGORYPAGE')
         let catProducts = action.payload;
         return {...state, catProducts: catProducts}
 

@@ -1,17 +1,3 @@
-// import React from 'react';
-// import {NavLink} from 'react-router-dom';
-// // import { actionUpdateCategoryPage } from './actions/menu';
-
-
-// let CategoryRow = ({category, updateCategoryPage}) => {
-//   return(
-//   <div className="menu-item">
-//     <NavLink to={`/category/${category.id}`} onClick={() => updateCategoryPage()}>{category.title}</NavLink>
-//     </div>
-//   )
-// }
-// export default CategoryRow;
-
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import { actionUpdateCategoryPage } from './actions/menu';
@@ -32,7 +18,6 @@ let mapDispatchToProps = (dispatch, props) => {
       })
       .then(res => res.json())
       .then(fetchCategoryProducts => {
-          // console.log('fetched categroy products' + fetchCategoryProducts)
           dispatch(actionUpdateCategoryPage(fetchCategoryProducts.products))
       })
   }}
