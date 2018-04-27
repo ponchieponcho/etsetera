@@ -5,7 +5,7 @@ import Header from './Header';
 import Main from './Main';
 import {connect, Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {UPDATE_MENU, UPDATE_MENU_STATUS, UPDATE_CART, UPDATE_CATEGORYPAGE} from './actions/menu'
+import {UPDATE_MENU, UPDATE_MENU_STATUS, UPDATE_CART, UPDATE_CATEGORYPAGE, UPDATE_PRODUCTPAGE} from './actions/menu'
 
 let initialState = {
     products: [],
@@ -13,6 +13,7 @@ let initialState = {
     users: [],
     cart: [],
     catProducts: [],
+    product: {images:[{url:null}]},
     menuOpen: false   
 };
 
@@ -40,6 +41,11 @@ let reducer = (state = initialState, action) => {
         let catProducts = action.payload;
         return {...state, catProducts: catProducts}
 
+        case UPDATE_PRODUCTPAGE:
+        console.log('TRIGGERED ACTION: UPDATE_PRODUCTPAGE')
+        let product = action.payload;
+        return {...state, product}
+
         default:
             return state;
     }
@@ -48,11 +54,17 @@ let reducer = (state = initialState, action) => {
 let store = createStore(reducer, 
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-let Body = () => 
-    <div>
+let Body = ({products}) => {
+    console.log('body', products)
+   
+
+   return(
+        <div>
         <Header />
         <Main />
     </div>
+   )
+}
 
 let TopLevel = () => 
     <Provider store={store}>
