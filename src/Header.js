@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Nav from './Nav';
 
-class Header extends Component {
-  render() {
-    return (
-    <header>
-      <Nav />
-    </header>
-    );
-  }
-}
+let Header = () =>
+  <header>
+  <Nav />
+  </header>
 
 export default Header;

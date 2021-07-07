@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class CartPage extends Component {
-  render() {
-    return (
-    <div>You have reached the cart page</div>
-    );
-  }
-}
+let CartPage = ({items}) =>
+<div className="categorypage-container">
+    {/* {
+          items.map(item => <SingleListing key={item.id} item={item}/>)
+    } */}
+</div>
 
 export default CartPage;

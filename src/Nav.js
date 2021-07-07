@@ -1,36 +1,45 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {HashRouter as Router, NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {actionUpdateMenuStatus} from './actions/menu'
 
-class Nav extends Component {
-  
-  render() {
+let mapStateToProps = (state) => { //set things you need access to
+  return {
+    cart: state.cart,
+    menuOpen: state.menuOpen
+  };
+}
 
-    return (
-      <Router>
-
-    <nav>
-      <div className="left-nav">
-      <div>
-        <button >Menu</button>
-      </div>
-        <span className="logo"><NavLink to="/">ETSETERA</NavLink></span>
-      </div>
-
-      <div className="right-nav">
-        <NavLink to="/signin">Sign In</NavLink>
-        <NavLink to="/cart">
-          <span className="fa-layers fa-fw">
-            <i className="fas fa-shopping-cart fa-2x"></i>
-            <span className="fa-layers-counter">4</span>
-          </span>
-        </NavLink>
-      </div>
-      
-    </nav>
-    </Router>
-
-    );
+let mapDispatchToProps = (dispatch) => {
+  return { 
+    updateMenuStatus: (theBoolean) => {
+      dispatch(actionUpdateMenuStatus(theBoolean))
+    }
   }
 }
 
-export default Nav;
+let Nav = ({cart, updateMenuStatus, menuOpen}) => 
+  <Router>
+
+  <nav>
+    <div className="left-nav">
+    <div>
+    <i id="MenuIcon" className="fas fa-bars fa-2x" onClick={() => updateMenuStatus(!menuOpen)}></i>
+    </div>
+      <span className="logo"><NavLink to="/">ETSETERA</NavLink></span>
+    </div>
+
+    <div className="right-nav">
+      <NavLink to="/signin">Sign In</NavLink>
+      <NavLink to="/cart">
+        <span className="fa-layers fa-fw">
+          <i className="fas fa-shopping-cart fa-2x"></i>
+          <span className="fa-layers-counter">{cart.length}</span>
+        </span>
+      </NavLink>
+    </div>
+  </nav>
+
+  </Router>
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

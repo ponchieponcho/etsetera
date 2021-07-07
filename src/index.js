@@ -3,19 +3,49 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Header from './Header';
 import Main from './Main';
-import {createStore} from 'redux';
 import {connect, Provider} from 'react-redux';
+import {createStore} from 'redux';
+import {UPDATE_MENU, UPDATE_MENU_STATUS, UPDATE_CART, UPDATE_CATEGORYPAGE, UPDATE_PRODUCTPAGE} from './actions/menu'
 
-let initState = {products:[]};
-const UPDATE_CATEGORY = 'UPDATE_CATEGORY';
+let initialState = {
+    products: [],
+    categories: [],
+    users: [],
+    cart: [],
+    catProducts: [],
+    product: {images:[{url:null}]},
+    menuOpen: false   
+};
 
-
-let reducer = (state = initState, action) => {
+let reducer = (state = initialState, action) => {
     switch(action.type) {
-        case UPDATE_CATEGORY:
-        console.log('ACTION: UPDATE_CATEGORY')
-        return {...state}
+        case UPDATE_MENU_STATUS:
+        // console.log('TRIGGERED ACTION: UPDATE_MENU_STATUS')
+        let menuOpen = action.payload;
+        return {...state, menuOpen: menuOpen}
+
+        case UPDATE_CART:
+        console.log('TRIGGERED ACTION: UPDATE_CART')
+        let item = action.payload;
+        let newState = state.cart;
+        let cart = newState.concat(item)
+        return {...state, cart: cart}
         
+        case UPDATE_MENU:
+        // console.log('TRIGGERED ACTION: UPDATE_MENU')
+        let categories = action.payload;
+        return {...state, categories: categories}
+
+        case UPDATE_CATEGORYPAGE:
+        // console.log('TRIGGERED ACTION: UPDATE_CATEGORYPAGE')
+        let catProducts = action.payload;
+        return {...state, catProducts: catProducts}
+
+        case UPDATE_PRODUCTPAGE:
+        console.log('TRIGGERED ACTION: UPDATE_PRODUCTPAGE')
+        let product = action.payload;
+        return {...state, product}
+
         default:
             return state;
     }
@@ -24,11 +54,17 @@ let reducer = (state = initState, action) => {
 let store = createStore(reducer, 
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-let Body = ({products, dispatch}) => 
-    <div>
+let Body = ({products}) => {
+    console.log('body', products)
+   
+
+   return(
+        <div>
         <Header />
         <Main />
     </div>
+   )
+}
 
 let TopLevel = () => 
     <Provider store={store}>
@@ -36,14 +72,20 @@ let TopLevel = () =>
     </Provider>
 
 let mapStateToProps = (state) => {
-    return {products: state.products};
+    return {
+        products: state.products,
+        categories: state.categories,
+        users: state.users,
+        cart: state.cart,
+        menuOpen: state.menuOpen
+    };
   }
   
-  let mapDispatchToProps = (dispatch) => {
+let mapDispatchToProps = (dispatch) => {
     return {dispatch: dispatch};
   }
   
-  let ConnectScreen = connect(
+let ConnectScreen = connect(
     mapStateToProps,
     mapDispatchToProps
   )(Body);

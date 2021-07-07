@@ -6,19 +6,19 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   width: inherit;
   height: inherit;
   font-size: 100%;
 }
 
 header {
-  background-color: wheat;
+  /* background-color: wheat; */
   height: 10vh;
 }
 
 main {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   height: 90vh;
   display: flex;
 }
@@ -27,6 +27,7 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 100%;
+  border-bottom: .5px solid;
   /* align-items: center; */
 }
 
@@ -41,6 +42,15 @@ a
 a:hover
 {
   color: tomato;
+}
+
+h1 {
+  padding: 0px;
+  margin: 0px;
+}
+
+#MenuIcon {
+  margin-bottom: 7.3px;
 }
 
 .left-nav {
@@ -72,26 +82,37 @@ a:hover
   font-size: 70%;
 }
 
-.toggle-on {
-  display: flex;
-}
-
-.toggle-off {
-  display: none;
-}
-
 .main-menu {
   display: flex;
   flex-direction: column;
-  background-color: burlywood;
+  /* background-color: burlywood; */
   align-items: center;
   flex-basis: 30%;
+  padding-top: .5%;
 }
 
 .main-content {
-  flex-basis: 70%;
+  height: 100%;
+  width: 100%;
+  padding-top: 1%;
 }
 
 .menu-item {
+  margin: 5px;
+}
+
+.categorypage-container {
+  /* background-color: grey; */
+  display:flex;
+  height: inherit;
+  width: inherit;
+}
+
+.singlelisting-container {
+  box-shadow: 3px 3.5px black;
+  background-color: honeydew;
+  padding: 5px;
+  height: 300px;
+  width: 300px;
   margin: 5px;
 }
